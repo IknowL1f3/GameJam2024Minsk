@@ -41,7 +41,7 @@
 
 1. Клонируйте репозиторий:
     ```bash
-    git clone https://github.com/GameJam2024Minsk
+    git clone https://github.com/IknowL1f3/GameJam2024Minsk
     ```
 2. Откройте проект в Unity.
 3. Постройте и запустите игру на выбранной платформе.
