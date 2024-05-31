@@ -353,6 +353,7 @@
 -analyzer:"D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/CameraSettings.cs"
+"Assets/Scripts/Helpers.cs"
 "Assets/Scripts/KeyBinds.cs"
 "Assets/Scripts/MovementHero.cs"
 -langversion:9.0

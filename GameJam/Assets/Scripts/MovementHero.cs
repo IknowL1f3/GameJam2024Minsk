@@ -2,67 +2,45 @@ using UnityEngine;
 
 public class MovementHero : MonoBehaviour
 {
-    public float maxMoveSpeed = 5f; // Maximum movement speed
-    public float acceleration = 10f; // Acceleration
-    public float deceleration = 10f; // Deceleration
-    private Rigidbody rb;
-    private Vector3 movement;
-    private Vector3 velocity = Vector3.zero; // Declaring velocity variable
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private float _speed = 5;
+    [SerializeField] private float _turnSpeed = 360;
 
-    // Key bindings
-    public KeyBinding keyBindings = new KeyBinding();
+    private Vector3 _input;
 
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; // Lock rotation
+        _rb.freezeRotation = true;
     }
-
-    void Update()
+    private void Update()
     {
-        ProcessInputs();
+        GatherInput();
+        Look();
     }
-
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Move();
     }
-
-    void ProcessInputs()
+    void GatherInput()
     {
-        movement = Vector3.zero;
+        _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+    }
 
-        if (Input.GetKey(keyBindings.forwardKey))
+    void Look()
+    {
+        if(_input !=Vector3.zero)
         {
-            movement += transform.forward;
-        }
-        if (Input.GetKey(keyBindings.backwardKey))
-        {
-            movement += -transform.forward;
-        }
-        if (Input.GetKey(keyBindings.leftKey))
-        {
-            movement += -transform.right;
-        }
-        if (Input.GetKey(keyBindings.rightKey))
-        {
-            movement += transform.right;
-        }
 
-        movement = movement.normalized * maxMoveSpeed;
+            var relative = (transform.position + _input.ToIso()) - transform.position;
+            var rot = Quaternion.LookRotation(relative, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
+        }
+        
     }
 
     void Move()
     {
-        if (movement != Vector3.zero)
-        {
-            velocity = Vector3.Lerp(velocity, movement, acceleration * Time.fixedDeltaTime);
-        }
-        else
-        {
-            velocity = Vector3.Lerp(velocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
-        }
-
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
     }
 }
