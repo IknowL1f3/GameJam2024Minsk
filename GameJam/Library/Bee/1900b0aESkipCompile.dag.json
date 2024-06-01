@@ -24,10 +24,10 @@
     {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
-      "Action": "\"D:/Unity/2022.3.13f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"D:\\Unity\\2022.3.13f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"D:\\Unity\\2022.3.13f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"D:\\Unity\\2022.3.13f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"D:\\Unity\\2022.3.13f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"D:\\Unity\\2022.3.13f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\" -s=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\" -s=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"D:/Reports/UNITY/2022.3.13f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.AI.Navigation.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"D:\\Reports\\UNITY\\2022.3.13f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"D:\\Reports\\UNITY\\2022.3.13f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"D:\\Reports\\UNITY\\2022.3.13f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"D:\\Reports\\UNITY\\2022.3.13f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"D:\\Reports\\UNITY\\2022.3.13f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\ScriptAssemblies\" -s=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.4\\lib\\ReportGenerator\" -s=\"D:\\GameJam\\GameJam2024Minsk\\GameJam\\Library\\PackageCache\\com.unity.visualscripting@1.9.1\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
       "Inputs": [
-        "D:/Unity/2022.3.13f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
-        "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
+        "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
+        "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
         "Library/ScriptAssemblies/Assembly-CSharp.dll",
         "Library/ScriptAssemblies/Unity.AI.Navigation.dll",
         "Library/ScriptAssemblies/Unity.TextMeshPro.dll",
@@ -63,106 +63,106 @@
   ],
   "FileSignatures": [
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.BuildTools.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.BuildTools.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Core.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Core.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.CSharpSupport.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.CSharpSupport.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.DotNet.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.DotNet.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Stevedore.Program.exe"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Stevedore.Program.exe"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Tools.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.Tools.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.TundraBackend.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.TundraBackend.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/BeeLocalCacheTool.exe"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/BeeLocalCacheTool.exe"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Newtonsoft.Json.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Newtonsoft.Json.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/NiceIO.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/NiceIO.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/SharpYaml.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/SharpYaml.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Api.Attributes.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Api.Attributes.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Linker.Api.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Linker.Api.dll"
     },
     {
-      "File": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Options.dll"
+      "File": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline/Unity.Options.dll"
     },
     {
       "File": "Library/Bee/1900b0aESkipCompile-inputdata.json"
@@ -217,7 +217,7 @@
   ],
   "GlobSignatures": [
     {
-      "Path": "D:/Unity/2022.3.13f1/Editor/Data/Tools/BuildPipeline"
+      "Path": "D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/BuildPipeline"
     }
   ],
   "ContentDigestExtensions": [
