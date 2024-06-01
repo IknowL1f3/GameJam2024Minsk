@@ -59,21 +59,15 @@ public class MovementHero : MonoBehaviour
             anim.SetBool("isRun", false);
             if (idleCoroutine == null)
             {
-                idleCoroutine = StartCoroutine(SetIdleAfterDelay(1,3.0f));
+                idleCoroutine = StartCoroutine(SetIdleAfterDelay(3.0f));
             }
         }
     }
 
-    IEnumerator SetIdleAfterDelay(int c, float delay)
+    IEnumerator SetIdleAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        if (c==1)
         anim.SetBool("isWait", true);
-        if (c == 2)
-        {
-            swordCollider.isTrigger = false;
-            Debug.Log("Sword's BoxCollider is not a trigger.");
-        }
     }
 
 
@@ -101,14 +95,21 @@ public class MovementHero : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    swordCollider.isTrigger = true;
+                swordCollider.enabled = true;
+                swordCollider.isTrigger = true;
                 Debug.Log("Sword's BoxCollider is now a trigger.");
-                StartCoroutine(SetIdleAfterDelay(2, 1.0f));
-                
-
-            }
+                StartCoroutine(AttakTimer(1.0f));
+                }
             
-        }
-        }
-    
+            }
+    }
+
+    IEnumerator AttakTimer(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        swordCollider.isTrigger = false;
+        swordCollider.enabled = false;
+        Debug.Log("Sword's BoxCollider is not a trigger.");
+    }
+
 }

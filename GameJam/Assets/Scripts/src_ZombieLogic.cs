@@ -9,8 +9,6 @@ public class MobMovement : MonoBehaviour
     public float rotationSpeed = 5f;
     public float detectionRange = 2.0f;
     public string targetTag;
-    public Collider wall;
-    public string wallTag;
 
     // Метод, вызываемый при входе другого коллайдера в триггер
     private void OnTriggerEnter(Collider other)
@@ -19,10 +17,7 @@ public class MobMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (wall.CompareTag(wallTag))
-        {
-            Destroy(gameObject);
-        }
+
     }
     void Start()
     {
