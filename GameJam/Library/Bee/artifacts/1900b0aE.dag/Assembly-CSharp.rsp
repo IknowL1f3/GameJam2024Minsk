@@ -356,6 +356,7 @@
 "Assets/Scenes/Sample/EscapePress.cs"
 "Assets/Scenes/Sample/Exit.cs"
 "Assets/Scripts/CameraSettings.cs"
+"Assets/Scripts/Helpers.cs"
 "Assets/Scripts/KeyBinds.cs"
 "Assets/Scripts/MovementHero.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
