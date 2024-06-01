@@ -354,8 +354,8 @@
 -analyzer:"D:/Reports/UNITY/2022.3.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/src_CameraSettings.cs"
 "Assets/Scripts/src_Helpers.cs"
+"Assets/Scripts/src_HeroMove.cs"
 "Assets/Scripts/src_KeyBinds.cs"
-"Assets/Scripts/src_MovementHero.cs"
 -langversion:9.0
 
 /deterministic
