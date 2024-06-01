@@ -267,6 +267,7 @@
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.rsp2","enqueuedNodeIndex":267,"enqueueingNodeAnnotation":"Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll (+2 others)","enqueueingNodeIndex":268}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll.mvfrm","enqueuedNodeIndex":271,"enqueueingNodeAnnotation":"Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll (+2 others)","enqueueingNodeIndex":268}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll.mvfrm.rsp","enqueuedNodeIndex":270,"enqueueingNodeAnnotation":"MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll.mvfrm","enqueueingNodeIndex":271}
+<<<<<<< Updated upstream
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"MovedFromExtractor Library/Bee/artifacts/mvdfrm/Unity.VisualStudio.Editor.ref.dll_3A975DBA53ABA4AD.mvfrm","enqueuedNodeIndex":285,"enqueueingNodeAnnotation":"ScriptAssemblies","enqueueingNodeIndex":6}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualStudio.Editor.dll (+2 others)","enqueuedNodeIndex":191,"enqueueingNodeAnnotation":"MovedFromExtractor Library/Bee/artifacts/mvdfrm/Unity.VisualStudio.Editor.ref.dll_3A975DBA53ABA4AD.mvfrm","enqueueingNodeIndex":285}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/Unity.VisualStudio.Editor.UnityAdditionalFile.txt","enqueuedNodeIndex":188,"enqueueingNodeAnnotation":"Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualStudio.Editor.dll (+2 others)","enqueueingNodeIndex":191}
@@ -351,3 +352,6 @@
 {"msg":"inputSignatureChanged","annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","index":342,"changes":[{"key":"FileList","value":["Library\\Bee\\artifacts\\1900b0aE.dag\\Assembly-CSharp.dll"],"oldvalue":[],"dependency":"explicit"}]}
 {"msg":"runNodeAction","annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","displayName":"Copying Assembly-CSharp.dll","index":342}
 {"msg":"noderesult","processed_node_count":341,"number_of_nodes_ever_queued":343,"annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","index":342,"exitcode":0,"outputfile":"Library\\ScriptAssemblies\\Assembly-CSharp.dll"}
+=======
+{"msg":"enqueueNode","enqueuedNodeAnnotation":"CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.pdb","enqueuedNodeIndex":325,"enqueueingNodeAnnotation":"ScriptAssemblies","enqueueingNodeIndex":6}
+>>>>>>> Stashed changes
