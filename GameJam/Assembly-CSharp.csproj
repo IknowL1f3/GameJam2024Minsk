@@ -66,6 +66,7 @@
 >>>>>>> 63a6d828db8d3fea27f03fa6190b020cc6c9e862
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\Scenes\Sample\Exit.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
@@ -136,6 +137,12 @@
 =======
     <Compile Include="Assets\Scripts\Helpers.cs" />
 >>>>>>> 63a6d828db8d3fea27f03fa6190b020cc6c9e862
+=======
+    <Compile Include="Assets\Scripts\src_Helpers.cs" />
+    <Compile Include="Assets\Scripts\src_MovementHero.cs" />
+    <Compile Include="Assets\Scripts\src_KeyBinds.cs" />
+    <Compile Include="Assets\Scripts\src_CameraSettings.cs" />
+>>>>>>> 3ccaddc5bf1bb21b4a41929888db0825de5a8a54
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
