@@ -357,7 +357,10 @@
 "Assets/Scenes/SampleScene/Exit.cs"
 "Assets/Scripts/src_CameraSettings.cs"
 "Assets/Scripts/src_Helpers.cs"
+"Assets/Scripts/src_HeroMove.cs"
 "Assets/Scripts/src_KeyBinds.cs"
+<<<<<<< HEAD
+=======
 "Assets/Scripts/src_MovementHero.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
@@ -393,6 +396,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+>>>>>>> e0ea9d60b38b796b0a065e49c72522d5e824b0b2
 -langversion:9.0
 
 /deterministic
