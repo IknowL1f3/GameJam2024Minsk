@@ -8,6 +8,8 @@ public class EscapePress : MonoBehaviour
 
     public bool isOpened = false;
     public GameObject Pause_Menu;
+    public GameObject Hints;
+    public GameObject HP;
     public void IO()
     {
         isOpened = false;
@@ -18,6 +20,9 @@ public class EscapePress : MonoBehaviour
         {
             isOpened = !isOpened; 
             Pause_Menu.SetActive(isOpened); 
+            Hints.SetActive(!isOpened);
+            HP.SetActive(!isOpened);
+
         }
 
     }
