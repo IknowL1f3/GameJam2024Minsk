@@ -3,7 +3,17 @@ guid: e3c1ee77e565bd347941983d0e0689de
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DemonEye
+    second: {fileID: 2100000, guid: 36065324d4da73343a9e33043d215f4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DemonSword
+    second: {fileID: 2100000, guid: d32d060fb28401442ae5f34201636962, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
