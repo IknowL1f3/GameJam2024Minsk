@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638528490040543184
-    m_Hash: 4237378701
+      ticks: 638528340149262451
+    m_Hash: 1829291373
   m_LockFileStatus:
     m_FilePath: D:/GameJam/GameJam2024Minsk/GameJam/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638528490040553205
-    m_Hash: 1783525082
+      ticks: 638528340149326912
+    m_Hash: 3129643191
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:

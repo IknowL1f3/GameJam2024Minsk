@@ -16,8 +16,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -119,6 +121,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -126,17 +132,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1574}
     - Class: 114
-      Script: {instanceID: 2582}
+      Script: {instanceID: 1862}
     - Class: 114
-      Script: {instanceID: 2786}
+      Script: {instanceID: 2586}
     - Class: 114
-      Script: {instanceID: 3074}
+      Script: {instanceID: 2790}
     - Class: 114
-      Script: {instanceID: 5578}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 6044}
+      Script: {instanceID: 5582}
     - Class: 114
-      Script: {instanceID: 24212}
+      Script: {instanceID: 6050}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -191,28 +197,26 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1574}
     - Class: 114
-      Script: {instanceID: 2582}
+      Script: {instanceID: 2034}
     - Class: 114
-      Script: {instanceID: 2786}
+      Script: {instanceID: 2586}
     - Class: 114
-      Script: {instanceID: 2928}
+      Script: {instanceID: 2790}
     - Class: 114
-      Script: {instanceID: 3074}
+      Script: {instanceID: 2932}
     - Class: 114
-      Script: {instanceID: 4088}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 5578}
+      Script: {instanceID: 4092}
     - Class: 114
-      Script: {instanceID: 6044}
+      Script: {instanceID: 5582}
     - Class: 114
-      Script: {instanceID: 7036}
+      Script: {instanceID: 5828}
     - Class: 114
-      Script: {instanceID: 23548}
+      Script: {instanceID: 6050}
     - Class: 114
-      Script: {instanceID: 23560}
+      Script: {instanceID: 7042}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 136
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
@@ -283,6 +287,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MainMenu
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Exit
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -423,7 +439,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 99ceb17de5145d5e65979456f1e81e4c
+      Hash: 1972bf9c869aa2d7a9847b046650ff2b
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: MobMovement
@@ -831,6 +847,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 1e7c1b107440a0cb672c5cd0e997a422
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EscapePress
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1099,26 +1121,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 1e7c1b107440a0cb672c5cd0e997a422
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: EscapePress
-  - hash:
-      serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Exit
-  - hash:
-      serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: MainMenu
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main_menu/Main_menu.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Game/1/GameJam.exe
+  playerPath: D:/Build/GameJam.exe
