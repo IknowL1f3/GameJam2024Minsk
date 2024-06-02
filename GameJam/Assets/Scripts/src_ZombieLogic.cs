@@ -10,7 +10,6 @@ public class MobMovement : MonoBehaviour
     public float rotationSpeed = 5f;
     public float detectionRange = 2.0f;
 
-    public string targetTag;
 
     public float attackDistance = 1f;
     public float attackReload = 0f;
@@ -18,15 +17,7 @@ public class MobMovement : MonoBehaviour
     private bool isAttack = false;
 
 
-    // Метод, вызываемый при входе другого коллайдера в триггер
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(targetTag))
-        {
-            Destroy(gameObject);
-        }
-
-    }
+    
     void Start()
     {
         _rb.freezeRotation = true;
@@ -58,7 +49,10 @@ public class MobMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         if (Vector3.Distance(transform.position, player.position) <= attackDistance + 0.7)
+        {
             Debug.Log("Атакован");
+            HealthBar.AdjustCurrentValue(-10);
+        }
         isAttack = false;
     }
 
