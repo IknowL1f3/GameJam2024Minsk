@@ -79,8 +79,9 @@ public class MobMovement : MonoBehaviour
         yield return new WaitForSeconds(1.12f);
         if (Vector3.Distance(transform.position, player.position) <= attackDistance + 0.7)
         {
-            //логика атаки
-            Debug.Log("Атакован");
+            player.GetComponent<Hero>().GetDamage(5);
+            HealthBar.AdjustCurrentValue(player.GetComponent<Hero>().hp);
+            Debug.Log("Атакован "+ player.GetComponent<Hero>().hp);
         }
         else
         {
