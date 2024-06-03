@@ -19,15 +19,22 @@ public class MobMovement : MonoBehaviour
     private bool isAttack = false;
     private bool isAlive = true;
 
+    public int HP=100;
+
 
     // Метод, вызываемый при входе другого коллайдера в триггер
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(targetTag))
         {
+            HP -= 50;
+            if (HP <= 0)
+            { 
             isAlive = false;
             animator.SetBool("isDie", true);
+                Karma.AdjustCurrentValue(5);
             StartCoroutine(WaitingDieing());
+            }
         }
 
     }
@@ -79,8 +86,9 @@ public class MobMovement : MonoBehaviour
         yield return new WaitForSeconds(1.12f);
         if (Vector3.Distance(transform.position, player.position) <= attackDistance + 0.7)
         {
-            //логика атаки
-            Debug.Log("Атакован");
+            player.GetComponent<Hero>().GetDamage(5);
+            HealthBar.AdjustCurrentValue(player.GetComponent<Hero>().hp);
+            Debug.Log("Атакован "+ player.GetComponent<Hero>().hp);
         }
         else
         {
