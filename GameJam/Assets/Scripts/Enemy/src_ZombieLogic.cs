@@ -83,7 +83,7 @@ public class MobMovement : MonoBehaviour
     }
     IEnumerator StartAttackDelay()
     {
-        yield return new WaitForSeconds(1.12f);
+        yield return new WaitForSeconds(1.4f);
         if (Vector3.Distance(transform.position, player.position) <= attackDistance + 0.7)
         {
             player.GetComponent<Hero>().GetDamage(5);
@@ -96,6 +96,13 @@ public class MobMovement : MonoBehaviour
             Debug.Log("Слишком далеко для атаки");
         }
         animator.SetBool("isAttack", false);
+        StartCoroutine(AttackEndDelay());
+       
+    }
+
+    IEnumerator AttackEndDelay()
+    {
+        yield return new WaitForSeconds(1.26f);
         isAttack = false;
     }
 }   

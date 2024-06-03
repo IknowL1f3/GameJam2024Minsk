@@ -31,13 +31,6 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        if (current <= 0)
-        {
-            Debug.Log("Помер");
-            Knight_bomj.SetActive(false);// поменять на смерть
-            current = 0;
-            
-        }
         if (current > maxValue) current = maxValue;
         slider.value = current;
         UpdateBackgroundBar();

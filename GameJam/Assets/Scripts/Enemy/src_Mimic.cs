@@ -18,6 +18,12 @@ public class Mimic : MonoBehaviour
     private bool isAttack = false;
     private bool isAlive = true;
 
+    public string targetTag;
+
+    public int HP = 100;
+
+    //private Hero hero = Hero.Instance();
+
     void Start()
     {
         _rb.freezeRotation = true;
@@ -58,6 +64,8 @@ public class Mimic : MonoBehaviour
         if (Vector3.Distance(transform.position, player.position) <= attackDistance + 0.7)
         {
             //логика атаки
+            player.GetComponent<Hero>().GetDamage(20);
+            HealthBar.AdjustCurrentValue(player.GetComponent<Hero>().hp);
             Debug.Log("Атакован");
         }
         else
@@ -85,5 +93,27 @@ public class Mimic : MonoBehaviour
         yield return new WaitForSeconds(1);
         isAgry = true;
         animator.SetBool("isWalk", true);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(targetTag))
+        {
+            HP -= 50;
+            if (HP <= 0)
+            {
+                isAlive = false;
+                animator.SetBool("isDie", true);
+                Karma.AdjustCurrentValue(5);
+                StartCoroutine(WaitingDieing());
+            }
+        }
+
+    }
+
+    IEnumerator WaitingDieing()
+    {
+        yield return new WaitForSeconds(2.5f);
+        Destroy(gameObject);
     }
 }

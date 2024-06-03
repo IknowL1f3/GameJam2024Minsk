@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2808,6 +2808,8 @@ MonoBehaviour:
   detectionRange: 1.5
   attackDistance: 1
   attackReload: 0
+  targetTag: targetTag
+  HP: 100
 --- !u!65 &404848882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2827,8 +2829,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9171467, y: 0.6734586, z: 0.7563124}
-  m_Center: {x: 0.0024366379, y: 0.34847343, z: -0.009747982}
+  m_Size: {x: 0.9171467, y: 0.96776366, z: 0.7563124}
+  m_Center: {x: 0.0024366379, y: 0.49562597, z: -0.009747982}
 --- !u!54 &404848883
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4916,6 +4918,7 @@ MonoBehaviour:
   _turnSpeed: 360
   anim: {fileID: 1016472976}
   sword: {fileID: 1912507403}
+  heroObject: {fileID: 1016472971}
 --- !u!95 &1016472976
 Animator:
   serializedVersion: 5
@@ -7824,6 +7827,8 @@ MonoBehaviour:
   detectionRange: 3
   attackDistance: 1
   attackReload: 0
+  targetTag: 
+  HP: 100
 --- !u!4 &1753882874
 Transform:
   m_ObjectHideFlags: 0
