@@ -32,7 +32,7 @@ public class MobMovement : MonoBehaviour
             { 
             isAlive = false;
             animator.SetBool("isDie", true);
-                Karma.AdjustCurrentValue(5);
+                Karma.AdjustCurrentValue(10);
             StartCoroutine(WaitingDieing());
             }
         }
@@ -86,7 +86,7 @@ public class MobMovement : MonoBehaviour
         yield return new WaitForSeconds(1.4f);
         if (Vector3.Distance(transform.position, player.position) <= attackDistance + 0.7)
         {
-            player.GetComponent<Hero>().GetDamage(5);
+            player.GetComponent<Hero>().GetDamage(10);
             HealthBar.AdjustCurrentValue(player.GetComponent<Hero>().hp);
             Debug.Log("Атакован "+ player.GetComponent<Hero>().hp);
         }

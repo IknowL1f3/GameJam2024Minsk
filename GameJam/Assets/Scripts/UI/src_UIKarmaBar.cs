@@ -20,7 +20,7 @@ public class Karma : MonoBehaviour
 
         slider.maxValue = maxValue;
         slider.minValue = 0;
-        current = 100;
+        current = 0;
 
         UpdateUI();
     }
