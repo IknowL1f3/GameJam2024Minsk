@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
 
     public float maxValue = 100;
     public Color color = Color.red;
-    public int width = 4;
+    public float width = 4;
     public UnityEngine.UI.Slider slider;
     public UnityEngine.UI.Image backgroundBar;
     public bool isRight;
@@ -46,7 +46,7 @@ public class HealthBar : MonoBehaviour
     void UpdateUI()
     {
         RectTransform rect = slider.GetComponent<RectTransform>();
-        int rectDeltaX = Screen.width / width;
+        float rectDeltaX = Screen.width / width;
         float rectPosX = 0;
 
         if (isRight)

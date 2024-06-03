@@ -4,18 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 public class src_VolumeManager : MonoBehaviour
 {
-    public static readonly string FirstPlay = "FirstPlay";
-    public static readonly string MusicPref = "MusicPref";
-    public static readonly string SoundEffectsPref = "SoundEffectsPref";
-    private int FirstPlayInt;
+    private static readonly string FirstPlay = "FirstPlay";
+    private static readonly string MusicPref = "MusicPref";
+    private static readonly string SoundEffectsPref = "SoundEffectsPref";
+    private int firstPlayInt;
     public Slider musicSlider, soundEffectsSlider;
     private float musicFloat, soundEffectsFloat;
     public AudioSource musicAudio;
     public AudioSource[] soundEffectsAudio;
     void Start()
     {
-        FirstPlayInt = PlayerPrefs.GetInt(FirstPlay);
-        if (FirstPlayInt == 0)
+        firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+
+        if (firstPlayInt == 0)
         {
             musicFloat = 0.25f;
             soundEffectsFloat = 0.75f;

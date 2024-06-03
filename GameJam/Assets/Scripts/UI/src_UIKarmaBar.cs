@@ -6,8 +6,8 @@ public class Karma : MonoBehaviour
 {
 
     public float maxValue = 100;
-    public Color color = new Color(134, 15, 134);
-    public int width = 4;
+    public Color color = new Color(255,255,255);
+    public float width = 4;
     public Slider slider;
     public Image backgroundBar;
     public bool isRight;
@@ -20,7 +20,7 @@ public class Karma : MonoBehaviour
 
         slider.maxValue = maxValue;
         slider.minValue = 0;
-        current = 0;
+        current = 100;
 
         UpdateUI();
     }
@@ -42,7 +42,7 @@ public class Karma : MonoBehaviour
     {
         RectTransform rect = slider.GetComponent<RectTransform>();
 
-        int rectDeltaX = Screen.width / width;
+        float rectDeltaX = Screen.width / width;
         float rectPosX = 0;
 
         if (isRight)
