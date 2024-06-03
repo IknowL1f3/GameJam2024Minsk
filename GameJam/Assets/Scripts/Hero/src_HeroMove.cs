@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementHero : MonoBehaviour
@@ -7,18 +8,23 @@ public class MovementHero : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _turnSpeed = 360;
     [SerializeField] private Animator anim;
-    
+
     private Vector3 _input;
 
-    public GameObject sword; // Объект меча
+    public GameObject sword;
     private BoxCollider swordCollider;
+
+    private int numberOfAttack = 0;
+    private bool isFirstAttackStart = false;
+    private bool isSecondAttackStart = false;
+    private bool isThirdAttackStart = false;
+    private List<Coroutine> attackCorontine = new List<Coroutine>();
 
     private void Start()
     {
         _rb.freezeRotation = true;
         if (sword != null)
         {
-            // Получаем компонент BoxCollider меча
             swordCollider = sword.GetComponent<BoxCollider>();
             swordCollider.isTrigger = false;
         }
@@ -83,33 +89,83 @@ public class MovementHero : MonoBehaviour
         }
 
     }
-    
+
     void Move()
     {
         _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
     }
+
     void Attack()
     {
-            if (swordCollider != null)
+        if (swordCollider != null)
+        {
+            if (Input.GetMouseButtonDown(0) && !IsAnyAttackActive())
             {
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                swordCollider.enabled = true;
-                swordCollider.isTrigger = true;
-                Debug.Log("Sword's BoxCollider is now a trigger.");
-                StartCoroutine(AttakTimer(1.0f));
-                }
-            
+                numberOfAttack++;
+                Debug.Log($"номер атаки {numberOfAttack}");
             }
+            switch (numberOfAttack)
+            {
+                case 1:
+                    if (!isFirstAttackStart)
+                    {
+                        Debug.Log("Первая атака началась");
+                        anim.SetBool("isFirstAttack", true);
+                        swordCollider.enabled = true;
+                        swordCollider.isTrigger = true;
+                        Coroutine attackCoroutine = StartCoroutine(AttakTimer(1.5f, "isFirstAttack"));
+                        attackCorontine.Add(attackCoroutine);
+                        isFirstAttackStart = true;
+                    }
+                    break;
+                case 2:
+                    if (!isSecondAttackStart)
+                    {
+                        Debug.Log("Вторая атака началась");
+                        anim.SetBool("isSecondAttack", true);
+                        swordCollider.enabled = true;
+                        swordCollider.isTrigger = true;
+                        Coroutine attackCoroutine = StartCoroutine(AttakTimer(0.47f, "isSecondAttack"));
+                        attackCorontine.Add(attackCoroutine);
+                        isSecondAttackStart = true;
+                    }    
+                    break;
+                case 3:
+                    if (!isThirdAttackStart)
+                    {
+                        Debug.Log("Вторая атака началась");
+                        anim.SetBool("isThirdAttack", true);
+                        swordCollider.enabled = true;
+                        swordCollider.isTrigger = true;
+                        Coroutine attackCoroutine = StartCoroutine(AttakTimer(0.47f, "isThirdAttack"));
+                        attackCorontine.Add(attackCoroutine);
+                        isThirdAttackStart = true;
+                    }
+                    break;
+                case 4:
+                    numberOfAttack = 0;
+                    isFirstAttackStart = false;
+                    isSecondAttackStart = false;
+                    isThirdAttackStart = false;
+                    break;
+            }
+            
+        }
     }
 
-    IEnumerator AttakTimer(float delay)
+    IEnumerator AttakTimer(float delay, string typeAttack)
     {
         yield return new WaitForSeconds(delay);
         swordCollider.isTrigger = false;
         swordCollider.enabled = false;
-        Debug.Log("Sword's BoxCollider is not a trigger.");
+        anim.SetBool(typeAttack, false);
+        Debug.Log("Атака закончилась");
+        attackCorontine.Clear();
+    }
+
+    public bool IsAnyAttackActive()
+    {
+        return attackCorontine.Count > 0;
     }
 
 }
