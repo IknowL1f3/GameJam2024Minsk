@@ -19,6 +19,7 @@ public class MovementHero : MonoBehaviour
     private bool isSecondAttackStart = false;
     private bool isThirdAttackStart = false;
     private List<Coroutine> attackCorontine = new List<Coroutine>();
+    private bool isNowAttack = false;
 
     private void Start()
     {
@@ -99,10 +100,18 @@ public class MovementHero : MonoBehaviour
     {
         if (swordCollider != null)
         {
-            if (Input.GetMouseButtonDown(0) && !IsAnyAttackActive())
+            if (!IsAnyAttackActive())
             {
-                numberOfAttack++;
-                Debug.Log($"номер атаки {numberOfAttack}");
+                if (Input.GetMouseButtonDown(0))
+                {
+                    numberOfAttack = numberOfAttack == 0 ? numberOfAttack + 1 : numberOfAttack;
+                    Debug.Log($"номер атаки {numberOfAttack}");
+                }
+                if (isNowAttack)
+                {
+                    isNowAttack = false;
+                    numberOfAttack++;
+                }
             }
             switch (numberOfAttack)
             {
@@ -114,6 +123,7 @@ public class MovementHero : MonoBehaviour
                         swordCollider.enabled = true;
                         swordCollider.isTrigger = true;
                         Coroutine attackCoroutine = StartCoroutine(AttakTimer(1.5f, "isFirstAttack"));
+                        _speed = 2;
                         attackCorontine.Add(attackCoroutine);
                         isFirstAttackStart = true;
                     }
@@ -126,9 +136,10 @@ public class MovementHero : MonoBehaviour
                         swordCollider.enabled = true;
                         swordCollider.isTrigger = true;
                         Coroutine attackCoroutine = StartCoroutine(AttakTimer(0.47f, "isSecondAttack"));
+                        _speed = 2;
                         attackCorontine.Add(attackCoroutine);
                         isSecondAttackStart = true;
-                    }    
+                    }
                     break;
                 case 3:
                     if (!isThirdAttackStart)
@@ -138,18 +149,14 @@ public class MovementHero : MonoBehaviour
                         swordCollider.enabled = true;
                         swordCollider.isTrigger = true;
                         Coroutine attackCoroutine = StartCoroutine(AttakTimer(0.47f, "isThirdAttack"));
+                        _speed = 2;
                         attackCorontine.Add(attackCoroutine);
                         isThirdAttackStart = true;
+                        StartCoroutine(ReloadWaitor(0.48f));
                     }
                     break;
-                case 4:
-                    numberOfAttack = 0;
-                    isFirstAttackStart = false;
-                    isSecondAttackStart = false;
-                    isThirdAttackStart = false;
-                    break;
             }
-            
+
         }
     }
 
@@ -160,7 +167,41 @@ public class MovementHero : MonoBehaviour
         swordCollider.enabled = false;
         anim.SetBool(typeAttack, false);
         Debug.Log("Атака закончилась");
+        _speed = 5;
+        StartCoroutine(WaitAttackCombo(0.75f));
         attackCorontine.Clear();
+    }
+
+    IEnumerator ReloadWaitor(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        numberOfAttack = 0;
+        isFirstAttackStart = false;
+        isSecondAttackStart = false;
+        isThirdAttackStart = false;
+    }
+
+    IEnumerator WaitAttackCombo(float delay)
+    {
+        float timer = 0f;
+
+        while (timer < delay)
+        {
+            if (Input.GetMouseButtonDown(0)) // Проверка на клик ЛКМ (0 - левая кнопка мыши)
+            {
+                Debug.Log("ЛКМ нажата");
+                isNowAttack = true;
+                yield break;
+            }
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        numberOfAttack = 0;
+        isFirstAttackStart = false;
+        isSecondAttackStart = false;
+        Debug.Log("Задержка завершена");
     }
 
     public bool IsAnyAttackActive()
