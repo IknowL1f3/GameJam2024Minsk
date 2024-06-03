@@ -5,11 +5,22 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     #region Singleton
-    public static Hero __instance;
+    private static Hero _instance;
 
-    private void Awake()
+    private Hero()
     {
-        __instance = this;
+        // Initialize default values if necessary
+        hp = 100;
+        damageMelee = 10f;
+        Karma = 0f;
+        skill_Heal = 0f;
+        skill_Otbras = 0f;
+        skill_Fireball = 0f;
+    }
+
+    public static Hero Instance()
+    {
+        return new Hero();
     }
     #endregion
 
@@ -33,6 +44,4 @@ public class Hero : MonoBehaviour
         hp -= countOfDamage;
         Debug.Log("хп проебано");
     }
-
-
 }

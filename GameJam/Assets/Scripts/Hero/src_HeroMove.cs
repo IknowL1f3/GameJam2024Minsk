@@ -21,6 +21,7 @@ public class MovementHero : MonoBehaviour
     private List<Coroutine> attackCorontine = new List<Coroutine>();
     private bool isNowAttack = false;
 
+
     private void Start()
     {
         _rb.freezeRotation = true;
@@ -39,6 +40,7 @@ public class MovementHero : MonoBehaviour
         GatherInput();
         Look();
         Attack();
+        Die();
     }
     private void FixedUpdate()
     {
@@ -209,4 +211,14 @@ public class MovementHero : MonoBehaviour
         return attackCorontine.Count > 0;
     }
 
+    private void Die()
+    {
+       
+    }
+
+    IEnumerator DieWaitor(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+     //   Destroy(heroObject);
+    }
 }

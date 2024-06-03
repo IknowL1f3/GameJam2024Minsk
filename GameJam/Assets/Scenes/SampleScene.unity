@@ -2206,6 +2206,8 @@ MonoBehaviour:
   detectionRange: 1.5
   attackDistance: 1
   attackReload: 0
+  targetTag: targetTag
+  HP: 100
 --- !u!65 &404848882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2225,8 +2227,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9171467, y: 0.6734586, z: 0.7563124}
-  m_Center: {x: 0.0024366379, y: 0.34847343, z: -0.009747982}
+  m_Size: {x: 0.9171467, y: 0.96776366, z: 0.7563124}
+  m_Center: {x: 0.0024366379, y: 0.49562597, z: -0.009747982}
 --- !u!54 &404848883
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2418,7 +2420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0025024414}
+  m_AnchoredPosition: {x: 0, y: 0.0024414062}
   m_SizeDelta: {x: 0, y: 0.0050049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583367970
@@ -3991,6 +3993,7 @@ MonoBehaviour:
   _turnSpeed: 360
   anim: {fileID: 1016472976}
   sword: {fileID: 1912507403}
+  heroObject: {fileID: 1016472971}
 --- !u!95 &1016472976
 Animator:
   serializedVersion: 5
@@ -6091,6 +6094,8 @@ MonoBehaviour:
   detectionRange: 3
   attackDistance: 1
   attackReload: 0
+  targetTag: 
+  HP: 100
 --- !u!4 &1753882874
 Transform:
   m_ObjectHideFlags: 0
