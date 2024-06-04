@@ -851,9 +851,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.92
-  m_Text: 'BOMJ
+  m_Text: 'The Demon''s
 
-    ADVENTURE'
+    Sword'
 --- !u!222 &243552409
 CanvasRenderer:
   m_ObjectHideFlags: 0

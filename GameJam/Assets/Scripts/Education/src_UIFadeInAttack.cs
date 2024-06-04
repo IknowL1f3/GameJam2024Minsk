@@ -7,12 +7,13 @@ public class FadeInAttack : MonoBehaviour
     public MovementHero movementHero;
     public GameObject AttackPanel;
     public GameObject AttackText;
+    public GameObject HP;
     public float fadeDuration = 0.1f;
     private Text AttackTextComponent;
 
     private int collectedCylinders = 0;
     private int totalCylinders = 3; // Установите общее количество цилиндров
-    
+
     public void Start1()
     {
         AttackTextComponent = AttackText.GetComponent<Text>();
@@ -20,6 +21,7 @@ public class FadeInAttack : MonoBehaviour
         UpdateAttackText(); // Обновление текста при старте
         Debug.Log("Скрипт запущен");
     }
+
     private void Update()
     {
         IncrementCylinderCounter();
@@ -64,10 +66,42 @@ public class FadeInAttack : MonoBehaviour
         if (AttackTextComponent != null)
         {
             AttackTextComponent.text = $"соверши комбо используя ЛКМ. \n{movementHero.numberOfAttack}/3";
-            if(movementHero.numberOfAttack == 3)
+            if (movementHero.numberOfAttack == 3)
             {
-                Debug.Log("complete");
+                StartCoroutine(FadeOutElements()); // Вызываем FadeOutElements только когда numberOfAttack равен 3
             }
         }
     }
+
+    IEnumerator FadeOutElements()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Начало изменения");
+        CanvasGroup panelCanvasGroup = AttackPanel.GetComponent<CanvasGroup>();
+        CanvasGroup textCanvasGroup = AttackText.GetComponent<CanvasGroup>();
+
+        if (panelCanvasGroup == null) panelCanvasGroup = AttackPanel.AddComponent<CanvasGroup>();
+        if (textCanvasGroup == null) textCanvasGroup = AttackText.AddComponent<CanvasGroup>();
+
+        float elapsedTime = 0f;
+        float startAlpha = 1f; // Начальное значение альфа-канала
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(startAlpha, 0f, elapsedTime / fadeDuration); // Интерполируем между начальным и конечным значениями
+
+            panelCanvasGroup.alpha = alpha;
+            textCanvasGroup.alpha = alpha;
+
+            yield return null;
+        }
+
+        panelCanvasGroup.alpha = 0f;
+        textCanvasGroup.alpha = 0f;
+        yield return new WaitForSeconds(1f);
+        HP.SetActive(true);
+        Debug.Log("Конец изменения");
+    }
+
 }
