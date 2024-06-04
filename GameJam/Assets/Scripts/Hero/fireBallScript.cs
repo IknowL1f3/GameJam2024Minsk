@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class FireballLauncher : MonoBehaviour
@@ -6,6 +7,8 @@ public class FireballLauncher : MonoBehaviour
     public float fireballSpeed = 10f;
     public Vector3 fireballOffset = new Vector3(0, 1, 2); 
     public float fireballLifetime = 3f;
+    public MovementHero movementHero;
+    private bool isReload = false;
 
 
     private Hero hero;
@@ -28,14 +31,47 @@ public class FireballLauncher : MonoBehaviour
                     //открытие способности
                     return;
                 }
-                LaunchFireball();
+                if(!isReload)
+                    LaunchFireball();
             }
         }
+    }
+    void StartReload()
+    {
+        if (!isReload)
+        {
+            StartCoroutine(ReloadCountdown(5));
+        }
+    }
+
+    IEnumerator ReloadCountdown(int time)
+    {
+        isReload = true;
+        int remainingTime = time;
+
+        while (remainingTime > 0)
+        {
+            Debug.Log(remainingTime);
+            yield return new WaitForSeconds(1);
+            remainingTime--;
+        }
+
+        isReload = false;
+        Debug.Log("Reload complete");
     }
 
     void LaunchFireball()
     {
         hero.GetKarma(10);
+        movementHero.anim.SetBool("isFireballOrHeal", true);
+        StartReload();
+        StartCoroutine(FireballAnimDelay());
+        
+    }
+
+    IEnumerator FireballAnimDelay()
+    {
+        yield return new WaitForSeconds(.5f);
         Vector3 fireballPosition = transform.position + transform.TransformDirection(fireballOffset);
         GameObject fireball = Instantiate(fireballPrefab, fireballPosition, transform.rotation);
         Rigidbody rb = fireball.GetComponent<Rigidbody>();
@@ -46,6 +82,8 @@ public class FireballLauncher : MonoBehaviour
         FireballMovement movement = fireball.AddComponent<FireballMovement>();
         movement.SetSpeed(fireballSpeed);
         movement.SetLifetime(fireballLifetime);
+        movementHero.anim.SetBool("isFireballOrHeal", false);
+        isReload = true;
     }
 }
 
@@ -92,4 +130,6 @@ public class FireballMovement : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+    
 }

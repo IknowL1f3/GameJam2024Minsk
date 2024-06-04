@@ -4332,6 +4332,7 @@ MonoBehaviour:
   pushForce: 10
   pushRadius: 5
   maxPushableObjects: 10
+  movementHero: {fileID: 1016472975}
 --- !u!114 &1016472979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4347,6 +4348,7 @@ MonoBehaviour:
   hero: {fileID: 1016472977}
   healingParticlesPrefab: {fileID: 1507740720357564295, guid: 4fa2227ad35f62c4e8f0b45f54994ffb, type: 3}
   rb: {fileID: 1016472974}
+  movementHero: {fileID: 1016472975}
 --- !u!114 &1016472980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4363,6 +4365,7 @@ MonoBehaviour:
   fireballSpeed: 10
   fireballOffset: {x: 0, y: 1, z: 2}
   fireballLifetime: 3
+  movementHero: {fileID: 1016472975}
 --- !u!1 &1076467003
 GameObject:
   m_ObjectHideFlags: 0
