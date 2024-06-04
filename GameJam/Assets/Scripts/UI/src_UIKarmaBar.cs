@@ -5,17 +5,21 @@ using System.Collections;
 public class Karma : MonoBehaviour
 {
 
-    public float maxValue = 100;
+    public int maxValue = 100;
     public Color color = new Color(134, 15, 134);
     public int width = 4;
     public Slider slider;
     public Image backgroundBar;
     public bool isRight;
 
+    private Hero hero;
+
     private static float current;
 
     void Start()
     {
+        hero = Hero.Instance;
+
         slider.fillRect.GetComponent<Image>().color = color;
 
         slider.maxValue = maxValue;
@@ -32,9 +36,9 @@ public class Karma : MonoBehaviour
 
     void Update()
     {
-        if (current < 0) current = 0;
-        if (current > maxValue) current = maxValue;
-        slider.value = current;
+        if (hero.karma < 0) hero.karma = 0;
+        if (hero.karma > maxValue) hero.karma = maxValue;
+        slider.value = hero.karma;
         UpdateBackgroundBar();
     }
 

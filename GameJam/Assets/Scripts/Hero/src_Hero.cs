@@ -1,47 +1,120 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    #region Singleton
-    private static Hero _instance;
+    private static readonly Lazy<Hero> _lazyInstance = new Lazy<Hero>(() => new Hero());
+    private static readonly object _lock = new object();
 
     private Hero()
     {
-        // Initialize default values if necessary
         hp = 100;
         damageMelee = 10f;
-        Karma = 0f;
-        skill_Heal = 0f;
-        skill_Otbras = 0f;
-        skill_Fireball = 0f;
+        _karma = 0;
+        _souls = 0;
     }
 
-    public static Hero Instance()
+    public static Hero Instance
     {
-        return new Hero();
+        get
+        {
+            return _lazyInstance.Value;
+        }
     }
-    #endregion
 
+    public int hp
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _hp;
+            }
+        }
+        private set
+        {
+            lock (_lock)
+            {
+                _hp = value;
+            }
+        }
+    }
+
+    public int souls
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _souls;
+            }
+        }
+        private set
+        {
+            lock (_lock)
+            {
+                _souls = value;
+            }
+        }
+    }
+    public int karma
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _karma;
+            }
+        }
+        set
+        {
+            lock (_lock)
+            {
+                _karma = value;
+            }
+        }
+    }
 
     public GameObject hero;
 
-    public int hp = 100;
+    private int _hp;
+    private int _souls;
+    private int _karma;
 
     public float damageMelee;
 
-    public float Karma;
 
-    public float skill_Heal;
-
-    public float skill_Otbras;
-  
-    public float skill_Fireball;
 
     public void GetDamage(int countOfDamage)
     {
         hp -= countOfDamage;
         Debug.Log("хп проебано");
+    }
+
+    public void GetSoul(int countOfSoul)
+    {
+        _souls += countOfSoul;
+        Debug.Log($"Души:{souls}");
+    }
+
+    public void GetKarma(int countOfKarma)
+    {
+        if (countOfKarma < 0)
+            _karma = _karma + countOfKarma < 0 ? _karma = 0 : _karma += countOfKarma;
+        else if (countOfKarma + _karma > 100)
+            _karma = 100;
+        else
+            _karma += countOfKarma;
+        Debug.Log($"карма:{_karma}");
+    }
+
+    public void Heal(int heal)
+    {
+        if (_hp + heal > 100)
+            _hp = 100;
+        else
+            _hp += heal;
     }
 }

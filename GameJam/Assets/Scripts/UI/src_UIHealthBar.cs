@@ -15,6 +15,8 @@ public class HealthBar : MonoBehaviour
     public GameObject Knight_bomj;
     private static float current;
 
+    private Hero hero;
+
     void Start()
     {
         slider.fillRect.GetComponent<UnityEngine.UI.Image>().color = color;
@@ -22,6 +24,7 @@ public class HealthBar : MonoBehaviour
         slider.minValue = 0;
         current = maxValue;
         UpdateUI();
+        hero = Hero.Instance;
     }
 
     public static float currentValue
@@ -31,8 +34,7 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        if (current > maxValue) current = maxValue;
-        slider.value = current;
+        slider.value = hero.hp;
         UpdateBackgroundBar();
     }
 
@@ -69,7 +71,7 @@ public class HealthBar : MonoBehaviour
     {
 
         RectTransform bgRect = backgroundBar.GetComponent<RectTransform>();
-        float healthPercentage = current / maxValue;
+        float healthPercentage = hero.hp / maxValue;
 
     }
 }

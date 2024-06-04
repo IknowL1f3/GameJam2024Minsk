@@ -20,27 +20,30 @@ public class MovementHero : MonoBehaviour
     private bool isThirdAttackStart = false;
     private List<Coroutine> attackCorontine = new List<Coroutine>();
     private bool isNowAttack = false;
+    private bool isDie = false;
+
+    private Hero hero;
 
 
     private void Start()
     {
+        hero = Hero.Instance;
         _rb.freezeRotation = true;
         if (sword != null)
         {
             swordCollider = sword.GetComponent<BoxCollider>();
             swordCollider.isTrigger = false;
         }
-        else
-        {
-            Debug.LogError("Sword object is not assigned!");
-        }
     }
     private void Update()
     {
-        GatherInput();
-        Look();
-        Attack();
         Die();
+        if (!isDie)
+        {
+            GatherInput();
+            Look();
+            Attack();
+        }
     }
     private void FixedUpdate()
     {
@@ -107,7 +110,6 @@ public class MovementHero : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     numberOfAttack = numberOfAttack == 0 ? numberOfAttack + 1 : numberOfAttack;
-                    Debug.Log($"номер атаки {numberOfAttack}");
                 }
                 if (isNowAttack)
                 {
@@ -120,7 +122,6 @@ public class MovementHero : MonoBehaviour
                 case 1:
                     if (!isFirstAttackStart)
                     {
-                        Debug.Log("Первая атака началась");
                         anim.SetBool("isFirstAttack", true);
                         swordCollider.enabled = true;
                         swordCollider.isTrigger = true;
@@ -133,7 +134,6 @@ public class MovementHero : MonoBehaviour
                 case 2:
                     if (!isSecondAttackStart)
                     {
-                        Debug.Log("Вторая атака началась");
                         anim.SetBool("isSecondAttack", true);
                         swordCollider.enabled = true;
                         swordCollider.isTrigger = true;
@@ -146,7 +146,6 @@ public class MovementHero : MonoBehaviour
                 case 3:
                     if (!isThirdAttackStart)
                     {
-                        Debug.Log("Вторая атака началась");
                         anim.SetBool("isThirdAttack", true);
                         swordCollider.enabled = true;
                         swordCollider.isTrigger = true;
@@ -168,7 +167,6 @@ public class MovementHero : MonoBehaviour
         swordCollider.isTrigger = false;
         swordCollider.enabled = false;
         anim.SetBool(typeAttack, false);
-        Debug.Log("Атака закончилась");
         _speed = 5;
         StartCoroutine(WaitAttackCombo(0.75f));
         attackCorontine.Clear();
@@ -191,7 +189,6 @@ public class MovementHero : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // Проверка на клик ЛКМ (0 - левая кнопка мыши)
             {
-                Debug.Log("ЛКМ нажата");
                 isNowAttack = true;
                 yield break;
             }
@@ -203,7 +200,6 @@ public class MovementHero : MonoBehaviour
         numberOfAttack = 0;
         isFirstAttackStart = false;
         isSecondAttackStart = false;
-        Debug.Log("Задержка завершена");
     }
 
     public bool IsAnyAttackActive()
@@ -213,12 +209,18 @@ public class MovementHero : MonoBehaviour
 
     private void Die()
     {
-       
+        if (hero.hp < 1)
+        {
+            anim.SetBool("isDie", true);
+            isDie = true;
+            StartCoroutine(DieWaitor(2));
+            _input = Vector3.zero;
+        }
     }
 
     IEnumerator DieWaitor(float delay)
     {
         yield return new WaitForSeconds(delay);
-     //   Destroy(heroObject);
+        //Затемнение экрана
     }
 }

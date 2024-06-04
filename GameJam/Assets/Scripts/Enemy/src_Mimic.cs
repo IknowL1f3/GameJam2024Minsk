@@ -22,11 +22,12 @@ public class Mimic : MonoBehaviour
 
     public int HP = 100;
 
-    //private Hero hero = Hero.Instance();
+    private Hero hero;
 
     void Start()
     {
         _rb.freezeRotation = true;
+        hero = Hero.Instance;
     }
 
     void Update()
@@ -63,10 +64,7 @@ public class Mimic : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (Vector3.Distance(transform.position, player.position) <= attackDistance + 0.7)
         {
-            //логика атаки
-            player.GetComponent<Hero>().GetDamage(20);
-            HealthBar.AdjustCurrentValue(player.GetComponent<Hero>().hp);
-            Debug.Log("Атакован");
+            hero.GetDamage(20);
         }
         else
         {
@@ -104,7 +102,8 @@ public class Mimic : MonoBehaviour
             {
                 isAlive = false;
                 animator.SetBool("isDie", true);
-                Karma.AdjustCurrentValue(5);
+                hero.GetKarma(-10);
+                hero.GetSoul(Random.Range(1, 6));
                 StartCoroutine(WaitingDieing());
             }
         }
@@ -116,4 +115,18 @@ public class Mimic : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
     }
+
+    public void GetHit(int damage)
+    {
+        HP -= damage;
+        if (HP <= 0)
+        {
+            isAlive = false;
+            animator.SetBool("isDie", true);
+            Karma.AdjustCurrentValue(5);
+            hero.GetSoul(Random.Range(1, 6));
+            StartCoroutine(WaitingDieing());
+        }
+    }
+
 }

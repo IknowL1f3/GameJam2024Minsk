@@ -1,8 +1,9 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MobMovement : MonoBehaviour
-{ 
+{
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private Transform player;
     [SerializeField] private Animator animator;
@@ -19,21 +20,24 @@ public class MobMovement : MonoBehaviour
     private bool isAttack = false;
     private bool isAlive = true;
 
-    public int HP=100;
+    public int HP = 100;
+
+    private Hero hero;
 
 
-    // Метод, вызываемый при входе другого коллайдера в триггер
+    // Метод, вызываемый при входе другого коheroллайдера в триггер
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(targetTag))
         {
-            HP -= 50;
+            HP -= 40;
             if (HP <= 0)
-            { 
-            isAlive = false;
-            animator.SetBool("isDie", true);
-                Karma.AdjustCurrentValue(5);
-            StartCoroutine(WaitingDieing());
+            {
+                isAlive = false;
+                animator.SetBool("isDie", true);
+                hero.GetKarma(-5);
+                hero.GetSoul(1);
+                StartCoroutine(WaitingDieing());
             }
         }
 
@@ -47,6 +51,7 @@ public class MobMovement : MonoBehaviour
 
     void Start()
     {
+        hero = Hero.Instance;
         _rb.freezeRotation = true;
     }
 
@@ -54,7 +59,7 @@ public class MobMovement : MonoBehaviour
     {
         if (isAlive)
             WalkAttackZombie();
-        
+
     }
 
     void WalkAttackZombie()
@@ -86,18 +91,16 @@ public class MobMovement : MonoBehaviour
         yield return new WaitForSeconds(1.4f);
         if (Vector3.Distance(transform.position, player.position) <= attackDistance + 0.7)
         {
-            player.GetComponent<Hero>().GetDamage(5);
-            HealthBar.AdjustCurrentValue(player.GetComponent<Hero>().hp);
-            Debug.Log("Атакован "+ player.GetComponent<Hero>().hp);
+            hero.GetDamage(10);
+            
         }
         else
         {
             //логика если промазал
-            Debug.Log("Слишком далеко для атаки");
         }
         animator.SetBool("isAttack", false);
         StartCoroutine(AttackEndDelay());
-       
+
     }
 
     IEnumerator AttackEndDelay()
@@ -105,5 +108,18 @@ public class MobMovement : MonoBehaviour
         yield return new WaitForSeconds(1.26f);
         isAttack = false;
     }
-}   
-      
+
+    public void GetHit(int damage)
+    {
+        HP -= damage;
+        if (HP <= 0)
+        {
+            isAlive = false;
+            animator.SetBool("isDie", true);
+            Karma.AdjustCurrentValue(5);
+            hero.GetSoul(1);
+            StartCoroutine(WaitingDieing());
+        }
+    }
+}
+
