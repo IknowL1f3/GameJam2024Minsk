@@ -18,8 +18,18 @@ public class PushAbility : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            hero.GetKarma(15);
-            ActivatePush();
+            if (hero.hp > 0)
+            {
+                if (!hero.push)
+                {
+
+                    AbilityShop shop = new AbilityShop();
+                    shop.BuyPush();
+                    //открытие способности
+                    return;
+                }
+                ActivatePush();
+            }
         }
     }
 
@@ -27,7 +37,7 @@ public class PushAbility : MonoBehaviour
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, pushRadius);
         int pushedCount = 0;
-
+        hero.GetKarma(15);
         foreach (Collider hitCollider in hitColliders)
         {
             if (pushedCount >= maxPushableObjects) break;

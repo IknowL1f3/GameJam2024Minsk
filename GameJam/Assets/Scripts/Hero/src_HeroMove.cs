@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class MovementHero : MonoBehaviour
@@ -43,6 +44,7 @@ public class MovementHero : MonoBehaviour
             GatherInput();
             Look();
             Attack();
+            InfluenceKarma();
         }
     }
     private void FixedUpdate()
@@ -222,5 +224,27 @@ public class MovementHero : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         //Затемнение экрана
+    }
+
+    void InfluenceKarma()
+    {
+        float speed = 5;
+        float animationSpeed = 1f;
+        float newAnimSpeed;
+        
+        if(hero._karma > 50)
+        {
+            int karmaCount = hero._karma - 50;
+            _speed = speed * (1 - (float)karmaCount / 50);
+            newAnimSpeed = animationSpeed * (1 - (float)karmaCount / 50);
+            anim.SetFloat("speed", newAnimSpeed);
+        }
+        else
+        {
+            anim.SetFloat("speed", 1);
+        }
+        if(hero._karma >= 100)
+            hero._hp = 0;
+
     }
 }
