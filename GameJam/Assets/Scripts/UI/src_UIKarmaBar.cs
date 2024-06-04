@@ -1,13 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class Karma : MonoBehaviour
 {
-
     public int maxValue = 100;
-    public Color color = new Color(134, 15, 134);
-    public int width = 4;
+    public float width;
     public Slider slider;
     public Image backgroundBar;
     public bool isRight;
@@ -16,11 +13,15 @@ public class Karma : MonoBehaviour
 
     private static float current;
 
+    // Начальный цвет белый
+    private Color startColor = Color.white;
+
+    // Конечный цвет фиолетовый
+    private Color endColor = new Color(134 / 255f, 15 / 255f, 134 / 255f);
+
     void Start()
     {
         hero = Hero.Instance;
-
-        slider.fillRect.GetComponent<Image>().color = color;
 
         slider.maxValue = maxValue;
         slider.minValue = 0;
@@ -36,10 +37,15 @@ public class Karma : MonoBehaviour
 
     void Update()
     {
-        if (hero.karma < 0) hero.karma = 0;
-        if (hero.karma > maxValue) hero.karma = maxValue;
+        if (Input.GetKeyDown(KeyCode.RightBracket)) // Проверка нажатия клавиши `]`
+        {
+            AdjustCurrentValue(10);
+        }
+
+        hero.karma = Mathf.Clamp(hero.karma, 0, maxValue);
         slider.value = hero.karma;
         UpdateBackgroundBar();
+        UpdateSliderColor();
     }
 
     void UpdateUI()
@@ -68,15 +74,22 @@ public class Karma : MonoBehaviour
         bgRect.position = rect.position;
     }
 
-    public static void AdjustCurrentValue(float adjust)
+    public static void AdjustCurrentValue(int adjust)
     {
         current += adjust;
+        Hero.Instance.karma += adjust; // Увеличение кармы героя
     }
+
     void UpdateBackgroundBar()
     {
-
         RectTransform bgRect = backgroundBar.GetComponent<RectTransform>();
         float karmaPercentage = current / maxValue;
+    }
 
+    void UpdateSliderColor()
+    {
+        float t = slider.value / maxValue;
+        Color newColor = Color.Lerp(startColor, endColor, t);
+        slider.fillRect.GetComponent<Image>().color = newColor;
     }
 }

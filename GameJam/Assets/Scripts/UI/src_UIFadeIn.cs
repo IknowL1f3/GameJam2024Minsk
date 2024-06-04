@@ -2,11 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeInUI : MonoBehaviour
+public class FadeInWASD : MonoBehaviour
 {
     public GameObject wasdPanel;
     public GameObject wasdText;
-    public float fadeDuration = 1.0f;
+    public float fadeDuration = 0.1f;
     private Text wasdTextComponent;
 
     private int collectedCylinders = 0;

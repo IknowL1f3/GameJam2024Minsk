@@ -107,6 +107,7 @@ public class Hero : MonoBehaviour
             _karma = 100;
         else
             _karma += countOfKarma;
+        
         Debug.Log($"карма:{_karma}");
     }
 

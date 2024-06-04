@@ -14,7 +14,7 @@ public class MovementHero : MonoBehaviour
     public GameObject sword;
     private BoxCollider swordCollider;
 
-    private int numberOfAttack = 0;
+    public int numberOfAttack = 0;
     private bool isFirstAttackStart = false;
     private bool isSecondAttackStart = false;
     private bool isThirdAttackStart = false;
@@ -223,4 +223,5 @@ public class MovementHero : MonoBehaviour
         yield return new WaitForSeconds(delay);
         //Затемнение экрана
     }
+
 }

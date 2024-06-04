@@ -99,5 +99,9 @@ public class src_VolumeManager : MonoBehaviour
         {
             PlayBattleMusic();
         }
+        else if (currentScene.name == "Education_scene")
+        {
+            PlayBattleMusic();
+        }
     }
 }
