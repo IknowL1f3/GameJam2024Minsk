@@ -25,7 +25,7 @@ public class MobMovement : MonoBehaviour
     private Hero hero;
 
 
-    // Метод, вызываемый при входе другого коheroллайдера в триггер
+    // пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅheroпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(targetTag))
@@ -96,7 +96,7 @@ public class MobMovement : MonoBehaviour
         }
         else
         {
-            //логика если промазал
+            //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         }
         animator.SetBool("isAttack", false);
         StartCoroutine(AttackEndDelay());

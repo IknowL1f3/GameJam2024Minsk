@@ -46,7 +46,7 @@ public class Karma : MonoBehaviour
     {
         RectTransform rect = slider.GetComponent<RectTransform>();
 
-        int rectDeltaX = Screen.width / width;
+        float rectDeltaX = Screen.width / width;
         float rectPosX = 0;
 
         if (isRight)

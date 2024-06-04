@@ -1,23 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class Settings : MonoBehaviour
 {
-    // public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
     public Dropdown qualityDropdown;
-    public Toggle fullscreenToggle; // Добавлено поле для Toggle
-    // public Slider volumeSlider;
-    // float currentVolume;
+    public Toggle fullscreenToggle;
     Resolution[] resolutions;
 
     void Start()
     {
-        if (resolutionDropdown == null || qualityDropdown == null || fullscreenToggle == null /*|| volumeSlider == null*/)
+        if (resolutionDropdown == null || qualityDropdown == null || fullscreenToggle == null)
         {
             Debug.LogError("One or more UI elements are not assigned in the inspector.");
             return;
@@ -40,28 +34,29 @@ public class Settings : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.RefreshShownValue();
         LoadSettings(currentResolutionIndex);
+
+        // Привязка метода к событию вручную
+        fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
     }
 
-    /*public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("Volume", volume);
-        currentVolume = volume;
-    }*/
     public void SetFullscreen(bool isFullscreen)
     {
+        // Логируем текущее значение флага
+        Debug.Log("SetFullscreen called with value: " + isFullscreen);
         Screen.fullScreen = isFullscreen;
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width,
-                  resolution.height, Screen.fullScreen);
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Debug.Log("Разрешение изменено");
     }
 
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        Debug.Log("Качество изменено");
     }
 
     public void SaveSettings()
@@ -69,8 +64,8 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetInt("QualitySettingPreference", qualityDropdown.value);
         PlayerPrefs.SetInt("ResolutionPreference", resolutionDropdown.value);
         PlayerPrefs.SetInt("FullscreenPreference", System.Convert.ToInt32(Screen.fullScreen));
-        PlayerPrefs.SetInt("FullscreenTogglePreference", fullscreenToggle.isOn ? 1 : 0); // Сохранение состояния флажка
-        // PlayerPrefs.SetFloat("VolumePreference", currentVolume);
+        PlayerPrefs.SetInt("FullscreenTogglePreference", fullscreenToggle.isOn ? 1 : 0);
+        Debug.Log("Настройки сохранены");
     }
 
     public void LoadSettings(int currentResolutionIndex)
@@ -119,17 +114,6 @@ public class Settings : MonoBehaviour
         {
             Debug.LogError("fullscreenToggle is not assigned in the inspector.");
         }
-
-        /*if (volumeSlider != null)
-        {
-            if (PlayerPrefs.HasKey("VolumePreference"))
-                volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
-            else
-                volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
-        }
-        else
-        {
-            Debug.LogError("volumeSlider is not assigned in the inspector.");
-        }*/
+        Debug.Log("Настройки загружены");
     }
 }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:GameJam/Assets/Textures/Group 16.png.meta
+guid: f57e7c5374ce3134c8811a816bbf52ae
+========
 guid: a6a0e0e0b92629346b86a6e604bcc089
+>>>>>>>> a55053357ddfbdb96fa8e8de5a1e58f1f14d76d8:GameJam/Assets/Textures/plitka3.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,10 +41,17 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
+<<<<<<<< HEAD:GameJam/Assets/Textures/Group 16.png.meta
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+========
     wrapU: 0
     wrapV: 0
     wrapW: 0
   nPOTScale: 1
+>>>>>>>> a55053357ddfbdb96fa8e8de5a1e58f1f14d76d8:GameJam/Assets/Textures/plitka3.png.meta
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
