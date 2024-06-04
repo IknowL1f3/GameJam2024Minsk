@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class FireballLauncher : MonoBehaviour
 {
-    public GameObject fireballPrefab; // Префаб фаерболла
-    public float fireballSpeed = 10f; // Скорость фаерболла
-    public Vector3 fireballOffset = new Vector3(0, 1, 1); // Смещение позиции фаерболла относительно персонажа
-    public float fireballLifetime = 3f; // Время жизни фаерболла
+    public GameObject fireballPrefab;
+    public float fireballSpeed = 10f;
+    public Vector3 fireballOffset = new Vector3(0, 1, 2); 
+    public float fireballLifetime = 3f;
+
 
     private Hero hero;
 
@@ -16,30 +17,32 @@ public class FireballLauncher : MonoBehaviour
 
     void Update()
     {
-        // Запуск фаерболла при нажатии на клавишу (например, пробел)
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            LaunchFireball();
+            if (hero.hp > 0)
+            {
+                if (!hero.fireball)
+                {
+                    AbilityShop shop = new AbilityShop();
+                    shop.BuyFireBall();
+                    //открытие способности
+                    return;
+                }
+                LaunchFireball();
+            }
         }
     }
 
     void LaunchFireball()
     {
         hero.GetKarma(10);
-        // Вычисление позиции запуска фаерболла с учетом смещения относительно персонажа
         Vector3 fireballPosition = transform.position + transform.TransformDirection(fireballOffset);
-
-        // Создание фаерболла из префаба в вычисленной позиции
         GameObject fireball = Instantiate(fireballPrefab, fireballPosition, transform.rotation);
-
-        // Отключение гравитации для фаерболла
         Rigidbody rb = fireball.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.useGravity = false;
         }
-
-        // Добавление скрипта для движения фаерболла
         FireballMovement movement = fireball.AddComponent<FireballMovement>();
         movement.SetSpeed(fireballSpeed);
         movement.SetLifetime(fireballLifetime);
@@ -63,10 +66,7 @@ public class FireballMovement : MonoBehaviour
 
     void Update()
     {
-        // Движение фаерболла вперед
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
-        // Уменьшение времени жизни
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
         {
@@ -76,7 +76,6 @@ public class FireballMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Проверка на класс `MobMovement`
         MobMovement mob = other.GetComponent<MobMovement>();
         if (mob != null)
         {
@@ -84,8 +83,6 @@ public class FireballMovement : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-        // Проверка на класс `Mimic`
         Mimic mimic = other.GetComponent<Mimic>();
         if (mimic != null)
         {
@@ -93,8 +90,6 @@ public class FireballMovement : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-        // Если коллайдер не принадлежит ни `MobMovement`, ни `Mimic`, уничтожаем фаерболл
         Destroy(gameObject);
     }
 }

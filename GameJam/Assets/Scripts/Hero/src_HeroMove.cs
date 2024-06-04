@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class MovementHero : MonoBehaviour
@@ -43,6 +44,7 @@ public class MovementHero : MonoBehaviour
             GatherInput();
             Look();
             Attack();
+            InfluenceKarma();
         }
     }
     private void FixedUpdate()
@@ -187,7 +189,7 @@ public class MovementHero : MonoBehaviour
 
         while (timer < delay)
         {
-            if (Input.GetMouseButtonDown(0)) // Проверка на клик ЛКМ (0 - левая кнопка мыши)
+            if (Input.GetMouseButtonDown(0)) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ (0 - пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ)
             {
                 isNowAttack = true;
                 yield break;
@@ -221,7 +223,28 @@ public class MovementHero : MonoBehaviour
     IEnumerator DieWaitor(float delay)
     {
         yield return new WaitForSeconds(delay);
-        //Затемнение экрана
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     }
 
+    void InfluenceKarma()
+    {
+        float speed = 5;
+        float animationSpeed = 1f;
+        float newAnimSpeed;
+        
+        if(hero._karma > 50)
+        {
+            int karmaCount = hero._karma - 50;
+            _speed = speed * (1 - (float)karmaCount / 50);
+            newAnimSpeed = animationSpeed * (1 - (float)karmaCount / 50);
+            anim.SetFloat("speed", newAnimSpeed);
+        }
+        else
+        {
+            anim.SetFloat("speed", 1);
+        }
+        if(hero._karma >= 100)
+            hero._hp = 0;
+
+    }
 }

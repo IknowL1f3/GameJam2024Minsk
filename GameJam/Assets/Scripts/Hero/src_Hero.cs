@@ -5,8 +5,21 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    private static readonly Lazy<Hero> _lazyInstance = new Lazy<Hero>(() => new Hero());
+    #region SingletonHero
+    private static Hero _instance;
     private static readonly object _lock = new object();
+
+    [Header("Настройки персонажа")]
+    public float damageMelee;
+    public int _hp;
+    public int _souls;
+    public int _karma;
+
+    [Header("Открытие способностей")]
+    [SerializeField]
+    private bool _fireball;
+    public bool _push;
+    public bool _heal;
 
     private Hero()
     {
@@ -14,15 +27,29 @@ public class Hero : MonoBehaviour
         damageMelee = 10f;
         _karma = 0;
         _souls = 0;
+        _fireball = false;
+        _push = false;
+        _heal = false;
     }
 
     public static Hero Instance
     {
         get
         {
-            return _lazyInstance.Value;
+            if (_instance == null)
+            {
+                lock (_lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = FindObjectOfType<Hero>();
+                    }
+                }
+            }
+            return _instance;
         }
     }
+    #endregion
 
     public int hp
     {
@@ -41,7 +68,6 @@ public class Hero : MonoBehaviour
             }
         }
     }
-
     public int souls
     {
         get
@@ -77,15 +103,59 @@ public class Hero : MonoBehaviour
         }
     }
 
+    public bool fireball
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _fireball;
+            }
+        }
+        set
+        {
+            lock (_lock)
+            {
+                _fireball = value;
+            }
+        }
+    }
+    public bool heal
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _heal;
+            }
+        }
+        set
+        {
+            lock (_lock)
+            {
+                _heal = value;
+            }
+        }
+    }
+    public bool push
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _push;
+            }
+        }
+        set
+        {
+            lock (_lock)
+            {
+                _push = value;
+            }
+        }
+    }
+
     public GameObject hero;
-
-    private int _hp;
-    private int _souls;
-    private int _karma;
-
-    public float damageMelee;
-
-
 
     public void GetDamage(int countOfDamage)
     {

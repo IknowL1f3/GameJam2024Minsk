@@ -98,7 +98,7 @@ public class Mimic : MonoBehaviour
         if (other.CompareTag(targetTag))
         {
             HP -= 50;
-            if (HP <= 0)
+            if (HP <= 0 && isAlive)
             {
                 isAlive = false;
                 animator.SetBool("isDie", true);
@@ -119,7 +119,7 @@ public class Mimic : MonoBehaviour
     public void GetHit(int damage)
     {
         HP -= damage;
-        if (HP <= 0)
+        if (HP <= 0 && isAlive)
         {
             isAlive = false;
             animator.SetBool("isDie", true);

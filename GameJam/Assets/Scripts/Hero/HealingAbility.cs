@@ -19,14 +19,23 @@ public class HealingAbility : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            hero.GetKarma(5);
-            ActivateHealingAbility();
+            if (hero.hp > 0)
+            {
+                if (!hero.heal)
+                {
+                    AbilityShop shop = new AbilityShop();
+                    shop.BuyHeal();
+                    //открытие способности
+                    return;
+                }
+                ActivateHealingAbility();
+            }
         }
     }
 
     public void ActivateHealingAbility()
     {
-        if (isAbilityReady)
+        if (isAbilityReady && hero._heal)
         {
             if (healingParticlesPrefab != null)
             {
@@ -48,6 +57,7 @@ public class HealingAbility : MonoBehaviour
 
     IEnumerator HealAfterDelay()
     {
+        hero.GetKarma(5);
         yield return new WaitForSeconds(2.5f);
 
         if (healingParticlesInstance != null)

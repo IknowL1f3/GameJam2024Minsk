@@ -24,14 +24,12 @@ public class MobMovement : MonoBehaviour
 
     private Hero hero;
 
-
-    // �����, ���������� ��� ����� ������� ��hero�������� � �������
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(targetTag))
         {
             HP -= 40;
-            if (HP <= 0)
+            if (HP <= 0 && isAlive)
             {
                 isAlive = false;
                 animator.SetBool("isDie", true);
@@ -112,7 +110,7 @@ public class MobMovement : MonoBehaviour
     public void GetHit(int damage)
     {
         HP -= damage;
-        if (HP <= 0)
+        if (HP <= 0 && isAlive)
         {
             isAlive = false;
             animator.SetBool("isDie", true);

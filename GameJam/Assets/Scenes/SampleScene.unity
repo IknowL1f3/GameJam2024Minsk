@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -968,36 +968,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: b74dd25545d30e84f9629a8f3481f30e, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Resume
---- !u!222 &197612814
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197612811}
-  m_CullTransparentMesh: 1
+  maxValue: 100
+  color: {r: 1, g: 1, b: 1, a: 1}
+  width: 4
+  slider: {fileID: 34940509}
+  backgroundBar: {fileID: 292644137}
+  isRight: 0
 --- !u!1 &211478238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4333,9 +4309,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb88251f9e4d4841bbdb388966ff2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 1016472971}
   damageMelee: 0
+  _hp: 100
+  _souls: 100
+  _karma: 0
+  _fireball: 0
+  _push: 0
+  _heal: 0
+  hero: {fileID: 1016472971}
 --- !u!114 &1016472978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016472971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea03be7ad7a4f048b952f1b4e8fd966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 10
+  pushRadius: 5
+  maxPushableObjects: 10
+--- !u!114 &1016472979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016472971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cee0e295b24b8d428e2614152a5a622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hero: {fileID: 1016472977}
+  healingParticlesPrefab: {fileID: 1507740720357564295, guid: 4fa2227ad35f62c4e8f0b45f54994ffb, type: 3}
+  rb: {fileID: 1016472974}
+--- !u!114 &1016472980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016472971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e929d9cc57073499ebf21eb9a57388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 5733892955977582190, guid: 258a2d563708f5444922993bd2cc5383, type: 3}
+  fireballSpeed: 10
+  fireballOffset: {x: 0, y: 1, z: 2}
+  fireballLifetime: 3
+--- !u!1 &1076467003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076467006}
+  - component: {fileID: 1076467005}
+  - component: {fileID: 1076467004}
+  m_Layer: 5
+  m_Name: Label
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1076467004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5582,6 +5628,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8407feb29cbf9a4468209b652013a828, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1016472977}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8407feb29cbf9a4468209b652013a828, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1016472980}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8407feb29cbf9a4468209b652013a828, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1016472979}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8407feb29cbf9a4468209b652013a828, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1016472978}
