@@ -8,6 +8,8 @@ public class HealingAbility : MonoBehaviour
     public GameObject healingParticlesPrefab; // Префаб частиц
     private ParticleSystem healingParticlesInstance; // Экземпляр ParticleSystem
     public Rigidbody rb;
+    public MovementHero movementHero;
+    private bool isReload = false;
 
     void Start()
     {
@@ -28,9 +30,33 @@ public class HealingAbility : MonoBehaviour
                     //открытие способности
                     return;
                 }
-                ActivateHealingAbility();
+                if (!isReload)
+                    ActivateHealingAbility();
             }
         }
+    }
+    void StartReload()
+    {
+        if (!isReload)
+        {
+            StartCoroutine(ReloadCountdown(10));
+        }
+    }
+
+    IEnumerator ReloadCountdown(int time)
+    {
+        isReload = true;
+        int remainingTime = time;
+
+        while (remainingTime > 0)
+        {
+            Debug.Log(remainingTime);
+            yield return new WaitForSeconds(1);
+            remainingTime--;
+        }
+
+        isReload = false;
+        Debug.Log("Reload complete");
     }
 
     public void ActivateHealingAbility()
@@ -49,7 +75,6 @@ public class HealingAbility : MonoBehaviour
                 healingParticlesInstance.transform.rotation = Quaternion.Euler(-90, 0, 0); // Установка поворота по X на -90 градусов
                 healingParticlesInstance.Play();
             }
-
             StartCoroutine(HealAfterDelay());
             isAbilityReady = false;
         }
@@ -58,8 +83,9 @@ public class HealingAbility : MonoBehaviour
     IEnumerator HealAfterDelay()
     {
         hero.GetKarma(5);
+        movementHero.anim.SetBool("isFireballOrHeal", true);
+        StartCoroutine(HealAnimDelay());
         yield return new WaitForSeconds(2.5f);
-
         if (healingParticlesInstance != null)
         {
             healingParticlesInstance.Stop();
@@ -67,5 +93,11 @@ public class HealingAbility : MonoBehaviour
         hero.Heal(15);
         Debug.Log(hero.hp);
         isAbilityReady = true;
+        StartReload();
+    }
+    IEnumerator HealAnimDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        movementHero.anim.SetBool("isFireballOrHeal", false);
     }
 }
