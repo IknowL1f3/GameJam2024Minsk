@@ -1,6 +1,6 @@
 # GameJam2024Minsk
-
 <div align="center">
+    <h1 target='_blank'>The Demon's Sword</h1>
     <a href='https://postimg.cc/LYQ8bjc5' target='_blank'>
         <img src='https://i.postimg.cc/WzTqtnSG/OIG2-2.jpg' alt='GameJam2024Minsk Logo' width='300'/>
     </a>
