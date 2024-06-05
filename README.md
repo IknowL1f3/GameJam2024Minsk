@@ -1,6 +1,7 @@
 # GameJam2024Minsk
 
-![GameJam2024Minsk Logo](file:///C:/Users/User/Downloads/OIG2%20(2).jpg)  <!-- Замените URL на ссылку на ваш логотип -->
+[![GameJam2024Minsk Logo](https://i.postimg.cc/WzTqtnSG/OIG2-2.jpg)](https://postimg.cc/LYQ8bjc5)
+  <!-- Замените URL на ссылку на ваш логотип -->
 
 ## О проекте
 
