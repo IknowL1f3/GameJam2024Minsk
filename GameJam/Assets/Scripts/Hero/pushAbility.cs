@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PushAbility : MonoBehaviour
 {
     public float pushForce = 10f; // Сила отталкивания
     public float pushRadius = 5f; // Радиус действия способности
     public int maxPushableObjects = 10; // Максимальное количество объектов, которые можно оттолкнуть за один раз
     public MovementHero movementHero;
-    private bool isReload = false;
-
+    private bool isReload;
+    public Image imagePush;
+    public Sprite openSprite;
+    public Sprite reloadSprite;
+    public Text textReload;
     private Hero hero;
 
     private void Start()
@@ -23,23 +26,30 @@ public class PushAbility : MonoBehaviour
         {
             if (hero.hp > 0)
             {
+                
                 if (!hero.push)
                 {
 
                     AbilityShop shop = new AbilityShop();
                     shop.BuyPush();
-                    //открытие способности
+                    imagePush.sprite = openSprite;
+                    isReload = false;
                     return;
                 }
                 if (!isReload)
+                {
+
+                    hero.isPushActive = true;
                     ActivatePush();
+                }
+                else { }
             }
         }
     }
 
     void ActivatePush()
     {
-        
+        isReload = true;
         hero.GetKarma(15);
         movementHero.anim.SetBool("isPushCast", true);
         movementHero._speed = 0;
@@ -51,6 +61,7 @@ public class PushAbility : MonoBehaviour
     {
         if (!isReload)
         {
+            imagePush.sprite = reloadSprite;
             StartCoroutine(ReloadCountdown(15));
         }
     }
@@ -62,13 +73,15 @@ public class PushAbility : MonoBehaviour
 
         while (remainingTime > 0)
         {
-            Debug.Log(remainingTime);
+            textReload.text = remainingTime.ToString();
             yield return new WaitForSeconds(1);
             remainingTime--;
         }
 
         isReload = false;
-        Debug.Log("Reload complete");
+        imagePush.sprite = openSprite;
+        hero.isPushActive = false;
+        textReload.text = string.Empty;
     }
     IEnumerator PushAnimDelay()
     {

@@ -16,14 +16,15 @@ public class PushSkill: MonoBehaviour
     private Hero hero;
     public GameObject Zombies;
     public GameObject FB;
-    
+    public GameObject zombie;
     void Start()
     {
         TextComponent = Text.GetComponent<Text>();
         hero = Hero.Instance;
         StartCoroutine(ShowElements());
-        Vector3 position = hero.transform.position;
+        Vector3 position = Player.transform.position;
         Zombies.transform.position = position;
+        Zombies.SetActive(true);
     }
 
     IEnumerator ShowElements()
@@ -67,15 +68,17 @@ public class PushSkill: MonoBehaviour
             mozno = false;
             FHP = true;
         }
-        if (hero._hp == 100 && FHP)
+        if (zombie.transform.position.x!= 1.050003 && FHP && Input.GetKeyDown(KeyCode.H) && hero.isPushActive)
         {
             StartCoroutine(FadeOutElements());
+            
             FHP = false;
         }
     }
     IEnumerator FadeOutElements()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
+        Destroy(Zombies);
         Debug.Log("Начало изменения");
         CanvasGroup panelCanvasGroup = Panel.GetComponent<CanvasGroup>();
         CanvasGroup textCanvasGroup = Text.GetComponent<CanvasGroup>();

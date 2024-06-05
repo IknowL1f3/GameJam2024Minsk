@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -928,8 +928,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 197612812}
-  - component: {fileID: 197612814}
   - component: {fileID: 197612813}
+  - component: {fileID: 197612814}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -968,12 +968,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 100
-  color: {r: 1, g: 1, b: 1, a: 1}
-  width: 4
-  slider: {fileID: 34940509}
-  backgroundBar: {fileID: 292644137}
-  isRight: 0
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &197612814
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197612811}
+  m_CullTransparentMesh: 1
 --- !u!1 &211478238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4276,6 +4300,7 @@ MonoBehaviour:
   _turnSpeed: 360
   anim: {fileID: 1016472976}
   sword: {fileID: 1912507403}
+  numberOfAttack: 0
 --- !u!95 &1016472976
 Animator:
   serializedVersion: 5
@@ -4317,6 +4342,8 @@ MonoBehaviour:
   _push: 0
   _heal: 0
   hero: {fileID: 1016472971}
+  isPushActive: 0
+  countFireballs: 0
 --- !u!114 &1016472978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4333,6 +4360,10 @@ MonoBehaviour:
   pushRadius: 5
   maxPushableObjects: 10
   movementHero: {fileID: 1016472975}
+  imagePush: {fileID: 0}
+  openSprite: {fileID: 0}
+  reloadSprite: {fileID: 0}
+  textReload: {fileID: 0}
 --- !u!114 &1016472979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4349,6 +4380,10 @@ MonoBehaviour:
   healingParticlesPrefab: {fileID: 1507740720357564295, guid: 4fa2227ad35f62c4e8f0b45f54994ffb, type: 3}
   rb: {fileID: 1016472974}
   movementHero: {fileID: 1016472975}
+  imageHeal: {fileID: 0}
+  openSprite: {fileID: 0}
+  reloadSprite: {fileID: 0}
+  textReload: {fileID: 0}
 --- !u!114 &1016472980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4366,39 +4401,10 @@ MonoBehaviour:
   fireballOffset: {x: 0, y: 1, z: 2}
   fireballLifetime: 3
   movementHero: {fileID: 1016472975}
---- !u!1 &1076467003
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1076467006}
-  - component: {fileID: 1076467005}
-  - component: {fileID: 1076467004}
-  m_Layer: 5
-  m_Name: Label
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1076467004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016472971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea03be7ad7a4f048b952f1b4e8fd966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushForce: 10
-  pushRadius: 5
-  maxPushableObjects: 10
+  imagePush: {fileID: 0}
+  openSprite: {fileID: 0}
+  reloadSprite: {fileID: 0}
+  textReload: {fileID: 0}
 --- !u!1 &1061776884
 GameObject:
   m_ObjectHideFlags: 0
@@ -4633,6 +4639,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063559790}
   m_CullTransparentMesh: 1
+--- !u!1 &1076467003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076467005}
+  m_Layer: 5
+  m_Name: Label
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1076467004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016472971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea03be7ad7a4f048b952f1b4e8fd966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 10
+  pushRadius: 5
+  maxPushableObjects: 10
+  movementHero: {fileID: 0}
+  imagePush: {fileID: 0}
+  openSprite: {fileID: 0}
+  reloadSprite: {fileID: 0}
+  textReload: {fileID: 0}
+--- !u!4 &1076467005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076467003}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1093734524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4771,7 +4828,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxValue: 100
-  color: {r: 1, g: 1, b: 1, a: 1}
   width: 2.32
   slider: {fileID: 1587563284}
   backgroundBar: {fileID: 332174385}
@@ -5640,6 +5696,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8407feb29cbf9a4468209b652013a828, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1016472978}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8407feb29cbf9a4468209b652013a828, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1076467004}
   m_SourcePrefab: {fileID: 100100000, guid: 8407feb29cbf9a4468209b652013a828, type: 3}
 --- !u!1 &1244323551
 GameObject:
@@ -9499,6 +9558,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1076467005}
   - {fileID: 1753882874}
   - {fileID: 705507995}
   - {fileID: 1931022432}

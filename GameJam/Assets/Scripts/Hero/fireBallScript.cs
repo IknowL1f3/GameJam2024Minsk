@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class FireballLauncher : MonoBehaviour
 {
     public GameObject fireballPrefab;
@@ -9,8 +9,10 @@ public class FireballLauncher : MonoBehaviour
     public float fireballLifetime = 3f;
     public MovementHero movementHero;
     private bool isReload = false;
-
-
+    public Image imagePush;
+    public Sprite openSprite;
+    public Sprite reloadSprite;
+    public Text textReload;
     private Hero hero;
 
     private void Start()
@@ -28,10 +30,12 @@ public class FireballLauncher : MonoBehaviour
                 {
                     AbilityShop shop = new AbilityShop();
                     shop.BuyFireBall();
-                    //открытие способности
+                    imagePush.sprite = reloadSprite;
+                    isReload = false;
                     return;
                 }
                 if(!isReload)
+
                     LaunchFireball();
             }
         }
@@ -51,22 +55,24 @@ public class FireballLauncher : MonoBehaviour
 
         while (remainingTime > 0)
         {
-            Debug.Log(remainingTime);
+            textReload.text = remainingTime.ToString();
             yield return new WaitForSeconds(1);
             remainingTime--;
         }
 
         isReload = false;
-        Debug.Log("Reload complete");
+        imagePush.sprite = openSprite;
+        hero.isPushActive = false;
+        textReload.text = string.Empty;
     }
 
     void LaunchFireball()
     {
         hero.GetKarma(10);
+        hero.countFireballs++;
         movementHero.anim.SetBool("isFireballOrHeal", true);
         StartReload();
         StartCoroutine(FireballAnimDelay());
-        
     }
 
     IEnumerator FireballAnimDelay()

@@ -14,11 +14,16 @@ public class EscapePress : MonoBehaviour
     public GameObject HP;
     public GameObject Karma;
     public GameObject BackGround;
+    public GameObject Skills;
+    public GameObject Souls;
+    public GameObject Video;
+    public GameObject exitMenu;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Settings.activeSelf!=true)
+
+            if (Settings.activeSelf!=true && exitMenu.activeSelf != true)
             {
             if (pauseGame)
                 {
@@ -33,6 +38,7 @@ public class EscapePress : MonoBehaviour
             {
                 Pause_Menu.SetActive(true);
                 Settings.SetActive(false);
+                exitMenu.SetActive(false);
             }
             
         }
@@ -44,6 +50,9 @@ public class EscapePress : MonoBehaviour
         Hints.SetActive(true);
         HP.SetActive(true);
         Karma.SetActive(true);
+        Skills.SetActive(true);
+        Souls.SetActive(true);
+        Video.SetActive(true);
         Time.timeScale = 1.0f;
         pauseGame= false;
 }
@@ -54,6 +63,10 @@ public class EscapePress : MonoBehaviour
         Hints.SetActive(false);
         HP.SetActive(false);
         Karma.SetActive(false);
+        Souls.SetActive(false);
+        Skills.SetActive(false);
+        Video.SetActive(false);
+        Video.SetActive(false);
         Time.timeScale = 0f;
         pauseGame = true;
     }

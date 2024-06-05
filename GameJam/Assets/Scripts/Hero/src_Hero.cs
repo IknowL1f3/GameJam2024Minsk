@@ -156,6 +156,8 @@ public class Hero : MonoBehaviour
     }
 
     public GameObject hero;
+    public bool isPushActive;
+    public int countFireballs = 0;
 
     public void GetDamage(int countOfDamage)
     {

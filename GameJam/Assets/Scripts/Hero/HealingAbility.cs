@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Diagnostics.Contracts;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealingAbility : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class HealingAbility : MonoBehaviour
     public Rigidbody rb;
     public MovementHero movementHero;
     private bool isReload = false;
+    public Image imageHeal;
+    public Sprite openSprite;
+    public Sprite reloadSprite;
+    public Text textReload;
 
     void Start()
     {
@@ -27,11 +33,15 @@ public class HealingAbility : MonoBehaviour
                 {
                     AbilityShop shop = new AbilityShop();
                     shop.BuyHeal();
-                    //открытие способности
+                    imageHeal.sprite = openSprite;
                     return;
                 }
-                if (!isReload)
+                if (!isReload )
                     ActivateHealingAbility();
+                else
+                {
+
+                }
             }
         }
     }
@@ -39,6 +49,7 @@ public class HealingAbility : MonoBehaviour
     {
         if (!isReload)
         {
+            imageHeal.sprite = reloadSprite;
             StartCoroutine(ReloadCountdown(10));
         }
     }
@@ -47,16 +58,16 @@ public class HealingAbility : MonoBehaviour
     {
         isReload = true;
         int remainingTime = time;
-
         while (remainingTime > 0)
         {
-            Debug.Log(remainingTime);
+            textReload.text = remainingTime.ToString();
             yield return new WaitForSeconds(1);
             remainingTime--;
         }
 
         isReload = false;
-        Debug.Log("Reload complete");
+        imageHeal.sprite = openSprite;
+        textReload.text = string.Empty;
     }
 
     public void ActivateHealingAbility()
@@ -90,7 +101,7 @@ public class HealingAbility : MonoBehaviour
         {
             healingParticlesInstance.Stop();
         }
-        hero.Heal(15);
+        hero.Heal(50);
         Debug.Log(hero.hp);
         isAbilityReady = true;
         StartReload();
